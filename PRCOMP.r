@@ -71,6 +71,18 @@ with(g,plot(PC1,PC2))
 with(g,plot(PC1,PC3)) 
 with(g,plot(PC2,PC3)) 
 with(g,plot(PC4,PC3)) 
+## Plot PC
+plot(data.pca$x,col=colors,pch=19)
+##Legend
+legend("topright", inset=.05,      # location and inset
+    bty="n", cex=.5,              # suppress legend box, shrink text 50%
+    title="Tumor Samples",
+    c(" Tumor 1", " Tumor 2", " Tumor 3", " Tumor 4 ", " Tumor 5 ", " Tumor 6 ", " Tumor 7 ", " Tumor 8 ", " Tumor 9 ", " Tumor 10 "), fill=c("#999999", "#E69F00", 
+"#56B4E9", "#0000CD", "#3CB371", "#C0FF3E", 
+"#FFFF00", "#EE4000", "#1E1E1E", "#A2CD5A"))
+##Biplot
+biplot(data.pca , scale=0)##biplot 
+
 
 
 
