@@ -10,6 +10,13 @@ for(i in seq(from=3, to=19, by=2)){
 	M <- data.frame(M,x)
 }
 Data = M
+library("DESeq2")
+dds <- DESeqDataSetFromMatrix(Data = cts,
+                              colData = coldata,
+                              design = ~ condition)
+dds <- DESeq(dds)
+
+Data <- counts(dds, normalized=TRUE)
 colnames(Data)<- c()## Remove header
 Data = as.matrix(Data) ###make into matrix
 data.pca<-prcomp(Data,center=TRUE,scale=TRUE) ###perform PCA
